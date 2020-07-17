@@ -1,2 +1,3 @@
 # Public
-allow
+
+- Scripts Shell feitos para passar o tempo 
