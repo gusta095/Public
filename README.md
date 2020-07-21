@@ -11,4 +11,4 @@ https://guialinux.uniriotec.br/shell/
 https://www.linuxforce.com.br/comandos-linux/comandos-linux-comando-test/
 ```
 
-.
+..
