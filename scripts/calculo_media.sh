@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Calculo de media v2"
+echo "Calculo de media"
 
 echo "Digite a primeira nota: "
 read NOTA1
