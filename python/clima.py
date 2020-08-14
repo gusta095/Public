@@ -24,3 +24,5 @@ Temperatura max:    {TEMP_MAX:.1f} Cº
 Temperatura min:    {TEMP_MIN:.1f} Cº
 ''')
 
+### README.MD ###
+# pip3 install googletrans
