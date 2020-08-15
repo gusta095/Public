@@ -1,5 +1,7 @@
 import boto3
 
+# Este script cria, deleta e mostra os buckets da AWS.
+
 # Funções
 def criar_bucket():
   S3 = boto3.client('s3')

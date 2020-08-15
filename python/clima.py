@@ -26,3 +26,5 @@ Temperatura min:    {TEMP_MIN:.1f} Cº
 
 ### README.MD ###
 # pip3 install googletrans
+
+# Ele mostra a temperatura e o clima na cidade.
