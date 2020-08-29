@@ -27,15 +27,6 @@ function res_tang(){
   echo $TANG_ZERO
 }
 
-# export SENO=`echo "scale=3;$CO/$HIPO" | bc`
-# export SENO_ZERO=`echo $SENO | echo "0$SENO"`
-
-# export COS=`echo "scale=3;$CA/$HIPO" | bc`
-# export COS_ZERO=`echo $COS | echo "0$COS"`
-
-# export TANG=`echo "scale=3;$CO/$CA" | bc`
-# export TANG_ZERO=`echo $TANG | echo "0$TANG"`
-
 echo """
 RESULTADOS
 -------------------
