@@ -10,10 +10,32 @@ variable "instance_type" {
 
 variable "ec2_number" {
   description = "numero de instancias"
-  default     = "2"
+  default     = "1"
 }
 
 variable "instance_name" {
   description = "nome da instancias"
   default     = "gusta-ec2"
+}
+
+variable "key_name" {
+  description = "Definição da chave de acesso"
+  default     = "gusta-keypair"
+}
+
+variable "security_groups" {
+  description = "security groups name"
+  default     = "gusta-sg"
+}
+
+# Security-group
+
+variable "sg_name" {
+  description = "nome da security group"
+  default     = "gusta-sg"
+}
+
+variable "acesso_SSH" {
+  description = "meu IP de acesso"
+  default     = "179.213.169.238/32"
 }
