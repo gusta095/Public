@@ -1,2 +1,4 @@
 .terraform
 public.json
+terraform.tfstate
+terraform.tfstate.backup
