@@ -22,3 +22,4 @@ output "Public-IP" {
 output "Security-group-name" {
   value = "${module.ec2.Security-group-name}"
 }
+

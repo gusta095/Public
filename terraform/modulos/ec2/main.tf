@@ -1,9 +1,10 @@
 resource "aws_instance" "gusta-ec2" {
-  count = "${var.ec2_number}"
-  ami = "${var.ami}"
-  instance_type = "${var.instance_type}"
+  count           = "${var.ec2_number}"
+  ami             = "${var.ami}"
+  instance_type   = "${var.instance_type}"
   key_name        = "${var.key_name}"
-  security_groups = ["${aws_security_group.gusta-sg.id}"]
+  # security_groups = ["${aws_security_group.gusta-sg.id}"]
+  security_groups = ["sg-01fd8f7485a7ab32a"]
 
   tags = {
     "Name" = "${var.instance_name}-${count.index +1}"
@@ -11,7 +12,9 @@ resource "aws_instance" "gusta-ec2" {
 }
 
 resource "aws_security_group" "gusta-sg" {
-  name = "${var.sg_name}"
+  description = "Libera todo o trafego"
+  name        = "${var.sg_name}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     from_port   = 443
@@ -45,3 +48,5 @@ resource "aws_security_group" "gusta-sg" {
     "Name" = "${var.sg_name}"
   }
 }
+
+

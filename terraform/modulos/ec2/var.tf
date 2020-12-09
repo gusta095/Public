@@ -39,3 +39,9 @@ variable "acesso_SSH" {
   description = "meu IP de acesso"
   default     = "179.213.169.238/32"
 }
+
+variable "vpc_id" {
+  description = "VPC padrão"
+  default     = "vpc-51ce8b2b"
+}
+
