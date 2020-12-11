@@ -3,8 +3,9 @@ resource "aws_instance" "gusta-ec2" {
   ami             = "${var.ami}"
   instance_type   = "${var.instance_type}"
   key_name        = "${var.key_name}"
-  # security_groups = ["${aws_security_group.gusta-sg.id}"]
-  security_groups = ["sg-01fd8f7485a7ab32a"]
+  subnet_id       = "subnet-7424135a"
+  security_groups = ["${aws_security_group.gusta-sg.id}"]
+  # security_groups = ["sg-01fd8f7485a7ab32a"]
 
   tags = {
     "Name" = "${var.instance_name}-${count.index +1}"
