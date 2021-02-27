@@ -18,7 +18,6 @@ def simple_create_bucket():
 
 # deletar bucket
 
-
 def delete_bucket():
     DELETE_BUCKET_NAME = 'BUCKET_NAME'
     S3 = boto3.client('s3')
@@ -26,7 +25,6 @@ def delete_bucket():
     print(f'O bucket {DELETE_BUCKET_NAME} foi deletado com sucesso.')
 
 # listar bucket
-
 
 def list_bucket():
     ACESSO_AWS = boto3.session.Session(profile_name=AWS_PROFILE)
@@ -36,7 +34,6 @@ def list_bucket():
 
 # lista objetos do bucket 1
 
-
 def list_all_objects():
     s3 = boto3.resource('s3')
     my_bucket = s3.Bucket(BUCKET_NAME)
@@ -44,7 +41,6 @@ def list_all_objects():
         print(file.key)
 
 # listar objetos do bucket 2
-
 
 def list_all_objects_details():
     s3 = boto3.resource('s3')
@@ -57,7 +53,6 @@ def list_all_objects_details():
 
 # buscar objetos por palavras chaves no s3
 
-
 def search_objects():
     s3 = boto3.resource('s3')
     my_bucket = s3.Bucket(BUCKET_NAME)
@@ -66,7 +61,6 @@ def search_objects():
             print(file.key)
 
 # baixar obejotos do S3
-
 
 def download_s3_file():
     s3 = boto3.client('s3')
