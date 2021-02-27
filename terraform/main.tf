@@ -3,14 +3,14 @@ provider "aws" {
   region = "us-east-1"
 }
 
-module "keypair" {
-  source = "./modulos/keypair"
-}
+# module "keypair" {
+#   source = "./modulos/keypair"
+# }
 
 module "ec2" {
   source = "./modulos/ec2"
 
-  key_name = "${module.keypair.key_name}"
+  # key_name = "${module.keypair.key_name}"
 }
 
 # output

@@ -2,8 +2,9 @@ resource "aws_instance" "gusta-ec2" {
   count           = "${var.ec2_number}"
   ami             = "${var.ami}"
   instance_type   = "${var.instance_type}"
-  key_name        = "${var.key_name}"
-  subnet_id       = "subnet-7424135a"
+  # key_name        = "${var.key_name}"
+  key_name        = "gusta-key.pem"
+  subnet_id       = "${var.subnet_id}"
   security_groups = ["${aws_security_group.gusta-sg.id}"]
   # security_groups = ["sg-01fd8f7485a7ab32a"]
 
@@ -49,5 +50,4 @@ resource "aws_security_group" "gusta-sg" {
     "Name" = "${var.sg_name}"
   }
 }
-
 

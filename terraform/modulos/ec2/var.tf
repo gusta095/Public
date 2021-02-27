@@ -28,6 +28,12 @@ variable "security_groups" {
   default     = "gusta-sg"
 }
 
+variable "subnet_id" {
+  description = "Id da subnet"
+  default     = "subnet-7424135a"
+}
+
+
 # Security-group
 
 variable "sg_name" {
