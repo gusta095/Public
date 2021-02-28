@@ -60,3 +60,51 @@ def create_sqs_queue_dlq():
         print(SET)
     else:
         print('SUCCESS SET DLQ')
+
+def send_mensage_sqs_queue():
+    SQS = boto3.client('sqs')
+    QUEUE_URL = 'queue_url'
+
+    response = SQS.send_message(QueueUrl = QUEUE_URL, DelaySeconds = 10, 
+    MessageBody = (
+        'Information about current NY Times fiction bestseller for '
+        'week of 12/11/2016.'
+    )
+    )
+    print(response['MessageId'])
+
+
+def received_mensage_sqs_queue():
+    SQS = boto3.client('sqs')
+    QUEUE_URL = 'queue_url'
+
+    PAYLOAD = SQS.receive_message(QueueUrl = QUEUE_URL, AttributeNames = ['SentTimestamp'],MaxNumberOfMessages = 1,MessageAttributeNames = ['All'],VisibilityTimeout=0,WaitTimeSeconds=0)
+    MENSAGE_ID = PAYLOAD['Messages'][0]['MessageId']
+    MENSAGE_BODY = PAYLOAD['Messages'][0]['Body']
+
+    print(f'''
+    MensageID: {MENSAGE_ID}
+    Body: 
+    {MENSAGE_BODY}
+    ''')
+
+def received_delete_mensage_sqs_queue():
+    SQS = boto3.client('sqs')
+    QUEUE_URL = 'queue_url'
+
+    PAYLOAD = SQS.receive_message(QueueUrl = QUEUE_URL, AttributeNames = ['SentTimestamp'],MaxNumberOfMessages = 1,MessageAttributeNames = ['All'],VisibilityTimeout=0,WaitTimeSeconds=0)
+    MENSAGE_ID = PAYLOAD['Messages'][0]['MessageId']
+    MENSAGE_BODY = PAYLOAD['Messages'][0]['Body']
+    RECEIPT_HANDLE = PAYLOAD['Messages'][0]['ReceiptHandle']
+
+    SQS.delete_message(
+        QueueUrl=QUEUE_URL,
+        ReceiptHandle=RECEIPT_HANDLE
+    )
+
+    print(f'''
+    Received and deleted message  ( ͡° ͜ʖ ͡°)
+    MensageID: {MENSAGE_ID}
+    Body: 
+    {MENSAGE_BODY}
+    ''')
