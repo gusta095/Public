@@ -1,9 +1,11 @@
 import boto3
+import codecs
 
 REGION_NAME = 'us-east-1'
 AWS_PROFILE = 'default'
 
 BUCKET_NAME = 'bucket_name'
+FILE_PATH = 'test/test2/test.txt'
 BUCKET_FILE_NAME = 'teste.txt'
 LOCAL_FILE_NAME = '/tmp/teste.txt'
 # LOCAL_FILE_NAME = 'teste.txt'
@@ -65,3 +67,21 @@ def search_objects():
 def download_s3_file():
     s3 = boto3.client('s3')
     s3.download_file(BUCKET_NAME, BUCKET_FILE_NAME, LOCAL_FILE_NAME)
+
+# fazer streaming de arquivo 
+
+def streaming_file():
+    s3 = boto3.resource('s3')
+    my_bucket = s3.Object(BUCKET_NAME, FILE_PATH)
+    line_steam = codecs.getreader('utf-8')
+    for line in line_steam(my_bucket.get(Range=f'bytes={0}-{(641*200000)}')['Body']):
+        print(line)
+
+# streaming para um arquivo 
+
+def streaming_to_file():
+    s3 = boto3.resource('s3')
+    my_bucket = s3.Object(BUCKET_NAME, FILE_PATH)
+    line_steam = codecs.getreader('utf-8')
+    for line in line_steam(my_bucket.get(Range=f'bytes={0}-{(641*10)}')['Body']):
+        print(line, file=open("output.txt", "a"))
