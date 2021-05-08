@@ -13,17 +13,17 @@ data "terraform_remote_state" "state" {
   }
 }
 
-module "ec2" {
-  source = "../modulos/ec2"
-
-  key_name        = "${module.keypair.key_name}"
-  security_groups = "${module.security-group.id}"
-}
 module "security-group" {
   source = "../modulos/security-group"
 }
 module "keypair" {
   source = "../modulos/keypair"
+}
+module "ec2" {
+  source = "../modulos/ec2"
+
+  key_name        = "${module.keypair.key_name}"
+  security_groups = "${module.security-group.id}"
 }
 
 
