@@ -13,8 +13,24 @@ data "terraform_remote_state" "state" {
   }
 }
 
-module "vpc" {
-  source = "./modulos/vpc"
+resource "aws_sqs_queue" "gusta_queue-dlq" {
+  name                        = "gusta-queue-dlq"
+  visibility_timeout_seconds  = 30
+  delay_seconds               = 0
+  message_retention_seconds   = 1209600
+  receive_wait_time_seconds   = 0
+}
+
+resource "aws_sqs_queue" "gusta_queue" {
+  name                        = "gusta-queue"
+  visibility_timeout_seconds  = 30
+  delay_seconds               = 0
+  message_retention_seconds   = 1209600
+  receive_wait_time_seconds   = 0
+  redrive_policy = jsonencode({
+    deadLetterTargetArn = "${aws_sqs_queue.gusta_queue-dlq.arn}"
+    maxReceiveCount     = 10
+  })
 }
 
 
