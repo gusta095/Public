@@ -1,2 +1,0 @@
-import numpay as np
-
