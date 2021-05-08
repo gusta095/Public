@@ -1,19 +1,19 @@
-output "Security-group-id" {
+output "id" {
   value = "${aws_security_group.gusta-sg.*.id}"
 }
 
-output "Security-group-arn" {
+output "arn" {
   value = "${aws_security_group.gusta-sg.*.arn}"
 }
 
-output "Security-group-name" {
+output "name" {
   value = "${aws_security_group.gusta-sg.*.name}"
 }
 
-output "Security-group-vpc" {
+output "vpc" {
   value = "${aws_security_group.gusta-sg.*.vpc_id}"
 }
 
-output "Security-group-inbound-rules" {
+output "inbound-rules" {
   value = "${aws_security_group.gusta-sg.*.ingress}"
 }

@@ -1,5 +1,6 @@
 resource "aws_security_group" "gusta-sg" {
-  name = "${var.sg_name}"
+  description = "${var.description}"
+  name        = "${var.name}"
 
   ingress {
     from_port   = 443
@@ -19,7 +20,7 @@ resource "aws_security_group" "gusta-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${var.acesso_SSH}"]
+    cidr_blocks = ["179.213.245.46/32"]
   }
 
   egress {
@@ -30,6 +31,6 @@ resource "aws_security_group" "gusta-sg" {
   }
 
   tags = {
-    "Name" = "${var.sg_name}"
+    "Name" = "${var.tags}"
   }
 }

@@ -1,9 +1,12 @@
-variable "sg_name" {
-  description = "nome da security group"
+variable "description" {
+  default     = "Libera todo o trafego"
+}
+
+variable "name" {
   default     = "gusta-sg"
 }
 
-variable "acesso_SSH" {
-  description = "meu IP de acesso"
-  default     = "179.213.169.238/32"
+variable "tags" {
+  default     = "gusta-sg"
 }
+

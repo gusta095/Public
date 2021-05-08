@@ -1,53 +1,27 @@
+variable "instance_number" {
+  default = "1"
+}
+
 variable "ami" {
-  description = "Escolha de AMI"
-  default     = "ami-00ddb0e5626798373"
+  default = "ami-09e67e426f25ce0d7"
 }
 
 variable "instance_type" {
-  description = "Tipo de instancia"
-  default     = "t2.micro"
-}
-
-variable "ec2_number" {
-  description = "numero de instancias"
-  default     = "1"
-}
-
-variable "instance_name" {
-  description = "nome da instancias"
-  default     = "gusta-ec2"
+  default = "t2.micro"
 }
 
 variable "key_name" {
-  description = "Definição da chave de acesso"
-  default     = "gusta-keypair"
-}
-
-variable "security_groups" {
-  description = "security groups name"
-  default     = "gusta-sg"
+  default = "gusta-keypair-teste"
 }
 
 variable "subnet_id" {
-  description = "Id da subnet"
-  default     = "subnet-7424135a"
+  default = "subnet-7424135a"
 }
 
-
-# Security-group
-
-variable "sg_name" {
-  description = "nome da security group"
-  default     = "gusta-sg"
+variable "security_groups" {
+  default = "sg-00000000000"
 }
 
-variable "acesso_SSH" {
-  description = "meu IP de acesso"
-  default     = "179.213.169.238/32"
+variable "tags" {
+  default = "gusta-ec2"
 }
-
-variable "vpc_id" {
-  description = "VPC padrão"
-  default     = "vpc-51ce8b2b"
-}
-
