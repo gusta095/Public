@@ -1,11 +1,9 @@
 import boto3
 import json
+import sys
 
-REGION_NAME = 'us-east-1'
-AWS_PROFILE = 'default'
-
-QUEUE_ORIGEN = 'queueURL'
-QUEUE_DESTINY = 'queueURL'
+QUEUE_ORIGEN = str(sys.argv[1])
+QUEUE_DESTINY = str(sys.argv[2])
 
 def move_messages_between_queues_sqs():
     SQS = boto3.client('sqs')
@@ -30,4 +28,4 @@ def move_messages_between_queues_sqs():
         print(f'{CONT :0>2d}/{CONT_MESSAGE_INT} - {RESPONSE}')
         CONT += 1
 
-move_messages_between_queues_sqs()  
+move_messages_between_queues_sqs() 
