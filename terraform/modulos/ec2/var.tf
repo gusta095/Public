@@ -1,25 +1,31 @@
 variable "instance_number" {
-  default = "1"
+  type    = number
+  default = 1
 }
 
 variable "ami" {
+  type    = string
   default = "ami-09e67e426f25ce0d7"
 }
 
 variable "instance_type" {
+  type    = string
   default = "t2.micro"
 }
 
 variable "key_name" {
+  type    = string
   default = "gusta-keypair-teste"
 }
 
 variable "subnet_id" {
-  default = "subnet-7424135a"
+  type    = string
+  default = ""
 }
 
 variable "security_groups" {
-  default = "sg-00000000000"
+  type    = string
+  default = ""
 }
 
 variable "tags" {
