@@ -24,5 +24,7 @@
 
 # ferramentas 
 
-- Terraform 
+- Tfswitch (https://tfswitch.warrensbox.com/Install/)
+- Terragrunt (https://terragrunt.gruntwork.io/)
 - Terraform-docs (https://github.com/terraform-docs/terraform-docs)
+- Tfsec (https://github.com/tfsec/tfsec)
