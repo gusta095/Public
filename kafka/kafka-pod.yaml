@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka
+  labels:
+    role: kafka
+spec:
+  containers:
+    - name: kafka
+      image: bitnami/kafka
+      args:
+      - sleep
+      - "1000000"
+      resources:
+        requests:
+          memory: "512Mi"
+          cpu: "500m"
+        limits:
+          memory: "1024Mi"
+          cpu: "1000m"
