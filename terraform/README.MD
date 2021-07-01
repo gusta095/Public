@@ -28,3 +28,5 @@
 - Terragrunt (https://terragrunt.gruntwork.io/)
 - Terraform-docs (https://github.com/terraform-docs/terraform-docs)
 - Tfsec (https://github.com/tfsec/tfsec)
+- Iam-policy (https://github.com/flosell/iam-policy-json-to-terraform)
+- infracost (https://github.com/infracost/infracost)
