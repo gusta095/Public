@@ -6,5 +6,3 @@ provider "aws" {
 module "queue-sqs" {
   source = "./modulos/queue-sqs"
 }
-
-
