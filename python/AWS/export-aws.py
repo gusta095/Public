@@ -23,6 +23,8 @@ def describe_ec2():
                     Security Name : {securityGroup['GroupName']}""")
         break
 
+import boto3
+
 def describe_sg():
     client = boto3.client('ec2')
     while True:
