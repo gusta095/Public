@@ -1,32 +1,32 @@
 # VPC
 variable "vpc_name" {
   description = "Nome da VPC"
-  default     = "vpc_main"
+  default     = "vpc_infra-test"
 }
 
 variable "ig_name" {
   description = "Nome do internet gateway"
-  default     = "ig_main"
+  default     = "ig_infra-test"
 }
 
 variable "eip_name" {
   description = "Nome do elastic IP"
-  default     = "eip_nat_gw_main"
+  default     = "eip_nat_gw_infra-test"
 }
 
 variable "nat_gw_name" {
   description = "Nome do nat gateway"
-  default     = "nat_gw_main"
+  default     = "nat_gw_infra-test"
 }
 
 variable "rt_public_name" {
   description = "Nome da route table publica"
-  default     = "rt_public_main"
+  default     = "rt_public_infra-test"
 }
 
 variable "rt_private_name" {
   description = "Nome da route table privada"
-  default     = "rt_private_main"
+  default     = "rt_private_infra-test"
 }
 
 # Privete subnet
