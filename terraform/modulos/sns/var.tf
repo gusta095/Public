@@ -1,11 +1,11 @@
 variable "topic-name" {
-  default     = "gusta-topic"
+  default = "gusta-topic"
 }
 
 variable "subscription-protocol" {
-  default     = "sqs"
+  default = "sqs"
 }
 
 variable "subscription-endpoint" {
-  default     = "arn:aws:sqs:us-east-1:936943748055:gusta-teste"
+  default = "arn:aws:sqs:us-east-1:936943748055:gusta-teste"
 }

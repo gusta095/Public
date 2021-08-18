@@ -9,7 +9,7 @@ variable "environment" {
 }
 
 variable "ssh_public_key_path" {
-  type    = string
+  type        = string
   description = "Path to Read/Write SSH Public Key File (directory)"
   default     = "."
 }

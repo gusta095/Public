@@ -13,13 +13,13 @@ resource "aws_key_pair" "generated" {
 }
 
 resource "local_file" "public_key_openssh" {
-  content    = tls_private_key.default.public_key_openssh
-  filename   = local.public_key_filename
+  content  = tls_private_key.default.public_key_openssh
+  filename = local.public_key_filename
 }
 
 resource "local_file" "private_key_pem" {
-  content    = tls_private_key.default.private_key_pem
-  filename   = local.private_key_filename
+  content  = tls_private_key.default.private_key_pem
+  filename = local.private_key_filename
 }
 
 provider "aws" {

@@ -1,26 +1,3 @@
-# resource "aws_iam_role" "role_eks" {
-#   name = var.role_name
-
-#   assume_role_policy = <<POLICY
-# {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Effect": "Allow",
-#       "Principal": {
-#         "Service": "eks.amazonaws.com"
-#       },
-#       "Action": "sts:AssumeRole"
-#     }
-#   ]
-# }
-# POLICY
-
-#   tags = {
-#     Name = "role_eks"
-#   }
-# }
-
 resource "aws_iam_role" "role_eks" {
   name               = var.role_name
   assume_role_policy = data.aws_iam_policy_document.role_eks_data.json
@@ -33,6 +10,16 @@ resource "aws_iam_role" "role_eks" {
 resource "aws_iam_role_policy_attachment" "policy-attach_AmazonEKSClusterPolicy" {
   role       = aws_iam_role.role_eks.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "policy-attach_AmazonEKSServicePolicy" {
+  role       = aws_iam_role.role_eks.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "policy-attach_AmazonEKSVPCResourceController" {
+  role       = aws_iam_role.role_eks.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
 }
 
 resource "aws_iam_role_policy_attachment" "policy-attach_AmazonEKSWorkerNodePolicy" {
@@ -50,7 +37,17 @@ resource "aws_iam_role_policy_attachment" "policy-attach_AmazonEKS_CNI_Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
-resource "aws_iam_role_policy_attachment" "policy-attach_AmazonEKSVPCResourceController" {
+resource "aws_iam_role_policy_attachment" "policy-attach_AWSWAFFullAccess" {
   role       = aws_iam_role.role_eks.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+  policy_arn = "arn:aws:iam::aws:policy/AWSWAFFullAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "policy-attach_AmazonCognitoReadOnly" {
+  role       = aws_iam_role.role_eks.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonCognitoReadOnly"
+}
+
+resource "aws_iam_role_policy_attachment" "policy-attach_IAMFullAccess" {
+  role       = aws_iam_role.role_eks.name
+  policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
 }

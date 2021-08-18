@@ -1,6 +1,6 @@
 resource "aws_security_group" "gusta-sg" {
-  description = "${var.description}"
-  name        = "${var.name}"
+  description = var.description
+  name        = var.name
 
   ingress {
     from_port   = 443
